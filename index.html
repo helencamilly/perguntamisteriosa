@@ -1,0 +1,52 @@
+<index.html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergunta Tonhão</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background-color: #f0f0f0;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Você deseja ir para a PQP agora ou daqui 5 segundos?</h1>
+    <button onclick="goToPQPNow()">Agora</button>
+    <button onclick="goToPQPIn5Seconds()">Daqui 5 segundos</button>
+
+    <p id="timer"></p>
+
+    <script>
+        function goToPQPNow() {
+            document.body.innerHTML = "<h1>Parabéns, você é Tonhão! 🎉🎊🥳</h1>";
+        }
+
+        function goToPQPIn5Seconds() {
+            let timeLeft = 5;
+            const timerElement = document.getElementById('timer');
+            const countdown = setInterval(() => {
+                timerElement.textContent = `Tonhão em ${timeLeft} segundos...`;
+                timeLeft--;
+                if (timeLeft < 0) {
+                    clearInterval(countdown);
+                    document.body.innerHTML = "<h1>Tonhaaaaao dnv! 😆🤦‍♂️</h1>";
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
